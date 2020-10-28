@@ -104,6 +104,8 @@ class Model(object):
         row_id: record id
         """
         obj = cls.query.get(row_id)
+        if not obj:
+            return 0
         if cls.__name__ == 'Actor':
             obj.filmography = []
         elif cls.__name__ == 'Movie':
